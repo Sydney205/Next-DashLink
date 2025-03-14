@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* @theme inline { */
+/*   --color-background: var(--background); */
+/*   --color-foreground: var(--foreground); */
+/*   --font-sans: var(--font-geist-sans); */
+/*   --font-mono: var(--font-geist-mono); */
+/* } */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("/font/GeistVariableVF.woff2") format("woff2");
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply tracking-tight font-bold mb-2 transition-all duration-150 ease-out;
+  }
+
+  h1 {
+    @apply md:text-6xl text-5xl;
+  }
+  
+  h2 {
+    @apply md:text-5xl text-4xl;
+  }
+
+  h3 {
+    @apply md:text-4xl text-3xl;
+  }
+
+  h4 {
+    @apply md:text-3xl text-2xl;
+  }
+
+  h5 {
+    @apply md:text-2xl text-xl;
+  }
+
+  h6 {
+    @apply md:text-xl text-lg;
+  }
+
+  p {
+    @apply md:text-lg transition-all duration-150 ease-out;
+  }
+
+  section {
+    @apply w-full h-max;
+  }
+
+  button {
+    @apply flex justify-center items-center border-[1px] rounded py-2 px-4 cursor-pointer hover:rounded-full transition-all ease-out gap-2;
+  }
+  
+  .primary-green-btn {
+    @apply border-green-600 bg-green-600 text-white;
+  }
+  
+  .secondary-green-btn {
+    @apply bg-inherit text-green-600 border-green-600;
+  }
+}
