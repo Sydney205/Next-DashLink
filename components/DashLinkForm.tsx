@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import QRCodeGenerator from "@/components/QRCodeGenerator";
 
 export default function DashLinkForm() {
   const [originalUrl, setOriginalUrl] = useState("");
@@ -92,6 +93,8 @@ export default function DashLinkForm() {
               <a href={`${baseUrl}/${link.shortId}`} target="_blank" className="text-blue-500 underline">
                 {baseUrl}/{link.shortId}
               </a>
+              
+              <QRCodeGenerator originalUrl={`${link.originalUrl}`} />
             </li>
           ))
         ) : (
