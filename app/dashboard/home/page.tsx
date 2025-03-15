@@ -1,19 +1,24 @@
 "use client";
 
-import { useSession, signOut } from "next-auth/react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import DashLinkForm from "@/components/DashLinkForm"
+import { useSession, signOut } from "next-auth/react";
+import DashLinkForm from "@/components/DashLinkForm";
 
 export default function Dashboard() {
-  const { data: session, status } = useSession();
   const router = useRouter();
+  const { data: session, status } = useSession();
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/auth/signin");
+    }
+  }, [status, router]);
 
   if (status === "loading") return <p>Loading...</p>;
 
-  if (!session) {
-    router.push("/auth/signin");
-    return null;
-  }
+  // Ensure session exists before accessing user properties
+  if (!session || !session.user) return null;
 
   return (
     <div>

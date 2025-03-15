@@ -7,31 +7,37 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="w-full h-max flex flex-col">
-        <section className="w-full flex flex-col justify-center md:flex-row md:justify-between items-center p-4">
-          <div className="w-[80%] md:w-[40%] h-[50vh]">
+      
+      <main className="w-full h-max flex flex-col justify-center items-center">
+        <section className="w-full h-full flex flex-col justify-start md:flex-row-reverse md:justify-center items-center px-12">
+          <div className="relative w-[80%] md:w-[50%] h-[70vh]">
             <Image
               src="/assets/woman.png" 
               alt=""
-              fill={true}
-              priority
+              fill
+              className="object-fit"
             />
           </div>
           
 
-          <div className="w-[60%] flex flex-col justify-center items-end">
-            <h5 className="mb-0">A Fast and Reliable URL Shortener</h5>
-            <p>Shorten, Share, and Simplify your links:</p>
+          <div className="w-[60%] flex flex-col justify-start">
+            <h2 className="font-extrabold">Welcome to <span className="text-green-600">DashLink</span></h2>
+            <p className="mb-2">A Fast and Reliable URL Shortener</p>
+            
+            <p className="text-xl">Shorten, Share, and Simplify your links:</p>
           
-            <span>
-              <h5 className="flex flex-col gap-2">
+            <span className="mt-4">
+              <h5 className="text-green-600">
                 Are your URLs too long and hard to remember?
               </h5> 
               
               <p className="w-[50%]">
-                With DashLink, you can quickly and easily transform those lengthy web addresses into short, sleek, and easy-to-share links.Say goodbye to clunky URLs and hello to simplicity.
+                With DashLink, you can quickly and easily transform those lengthy web addresses into short, sleek, and easy-to-share links.
               </p>
+              <p>Say goodbye to clunky URLs and hello to simplicity.</p>
             </span>
+
+            <button className="mt-2 w-max primary-green-btn">Get started</button>
           </div>
         </section>
 

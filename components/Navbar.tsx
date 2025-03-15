@@ -1,22 +1,8 @@
 "use client";
 
-// React
-import { 
-  useState, 
-  useEffect, 
-  useRef 
-} from "react";
-
 // Next
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
-
-// Framer motion
-// import { motion } from "framer-motion";
-
-// libs
-// import { slideDown } from "@/lib/motion";
 
 export default function Navbar() {
   const router = useRouter()
@@ -33,10 +19,9 @@ export default function Navbar() {
         <a 
           href={route} 
           key={index} 
-          className="border border-transparent rounded-full hover:border-white border-neutral-800 p-[2px] px-4 transition-all duration-200" 
-          onClick={() => {setIsScrollingDown(false)}}
+          className="hover:text-green-500" 
         >
-          <span>{title}</span>
+          {title}
         </a>
       )
   );
@@ -55,16 +40,14 @@ export default function Navbar() {
     <nav      
       className="bg-inherit top-0 fixed w-full flex justify-between items-center min-h-[10vh] p-2 z-50 shadow-xl left-0"
     >
-      <div>
-        <h4
-          className="font-extrabold"
-        >
+      <div className="w-max flex justify-center items-center gap-24">
+        <h4 className="font-extrabold">
           Dash<span className="text-green-600">Link</span>
-        
-          {/*<div className="flex justify-center items-center gap-2 text-lg">
-            {linksMap}
-          </div>*/}
         </h4>
+        
+        <div className="flex justify-center items-center gap-4">
+          {linksMap}
+        </div>
       </div>
       
       {/* Desktop navigation links and btns */}

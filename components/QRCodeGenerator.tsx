@@ -1,8 +1,8 @@
 import { useState, useRef } from "react";
 import { QRCodeCanvas } from "qrcode.react";
 
-const QRCodeGenerator = ({ originalUrl }: { originalUrl: string }) => {
-  const [text, setText] = useState(originalUrl || ""); // Default to originalUrl
+export default function QRCodeGenerator({ originalUrl }: { originalUrl: string }) {
+  const url: string = originalUrl;
   const qrRef = useRef<HTMLCanvasElement | null>(null);
 
   function downloadQRCode() {
@@ -17,16 +17,9 @@ const QRCodeGenerator = ({ originalUrl }: { originalUrl: string }) => {
   
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Enter URL"
-        className="border p-2 rounded"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      />
-      {text && (
-        <div className="">
-          <QRCodeCanvas value={text} size={200} ref={qrRef} className="mt-4" />
+      {url && (
+        <div className="flex flex-col justify-center items-center gap-2">
+          <QRCodeCanvas value={url} size={200} ref={qrRef} className="mt-4" />
           <button onClick={downloadQRCode}>
             Download QR Code
           </button>

@@ -2,6 +2,13 @@ import mongoose from "mongoose";
 
 const LinkSchema = new mongoose.Schema(
   {
+    title: {
+      type: String,
+      required: false,
+    },
+    desc: {
+      type: String,
+    },
     originalUrl: { 
       type: String, 
       required: true 
