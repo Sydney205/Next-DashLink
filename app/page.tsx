@@ -8,8 +8,8 @@ export default function Home() {
     <>
       <Navbar />
       
-      <main className="w-full h-max flex flex-col justify-center items-center">
-        <section className="w-full h-full flex flex-col justify-start md:flex-row-reverse md:justify-center items-center px-12">
+      <main className="w-full h-max flex flex-col justify-start items-center">
+        <section className="w-full h-full flex flex-col justify-start md:flex-row-reverse md:justify-center items-center px-12 pt-12">
           <div className="relative w-[80%] md:w-[50%] h-[70vh]">
             <Image
               src="/assets/woman.png" 
@@ -20,7 +20,7 @@ export default function Home() {
           </div>
           
 
-          <div className="w-[60%] flex flex-col justify-start">
+          <div className="flex flex-col justify-start">
             <h2 className="font-extrabold">Welcome to <span className="text-green-600">DashLink</span></h2>
             <p className="mb-2">A Fast and Reliable URL Shortener</p>
             
@@ -31,7 +31,7 @@ export default function Home() {
                 Are your URLs too long and hard to remember?
               </h5> 
               
-              <p className="w-[50%]">
+              <p className="w-[60%] mb-2">
                 With DashLink, you can quickly and easily transform those lengthy web addresses into short, sleek, and easy-to-share links.
               </p>
               <p>Say goodbye to clunky URLs and hello to simplicity.</p>
@@ -41,7 +41,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section>
+        <section className="w-full md:w-[70%] h-max flex flex-col justify-start items-center">
           <div className="px-4 pt-5 my-5 text-center" id="about">
             <h4 className="text-green-600">Why Choose DashLink?</h4>
             <div className="col-lg-6 mx-auto">
@@ -54,16 +54,14 @@ export default function Home() {
               <strong><span className="green">3. </span> Secure and Reliable:</strong>
               <p className="lead mb-4">Rest assured that your links are safe with a reliable measures and infrastructures.</p>
             </div>
-            <div className="overflow-hidden">
-              <div className="container px-5">
-                <Image
-                  src="/assets/boy.png" 
-                  alt=""
-                  width={300}
-                  height={300}
-                  priority
-                />
-              </div>
+            
+            <div className="relative flex justify-center items-center w-[80%] md:w-[45%] h-[60vh]">
+              <Image
+                src="/assets/boy.png" 
+                alt=""
+                fill
+                className="object-fit"
+              />
             </div>
           </div>
         </section>

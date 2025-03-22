@@ -1,9 +1,27 @@
-// import 
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useSession, signOut } from "next-auth/react";
 
 export default function DashboardSidebar() {
+  const router = useRouter();
+  const { data: session, status } = useSession();
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/auth/signin");
+    }
+  }, [status, router]);
+
+  if (status === "loading") return <p>Loading...</p>;
+
+  // Ensure session exists before accessing user properties
+  if (!session || !session.user) return null;
+  
   const routes: [number, string, string][] = [
     [1, "Home", "home"],
-    [2, "Links", "links"],
+    [2, "Create Link", "new"],
   ];
 
   const routesMap = routes.map(
@@ -21,9 +39,14 @@ export default function DashboardSidebar() {
   
   return (
     <>
-      <div className="absolute top-[10%] left-0 w-[20%] h-full flex flex-col justify-between bg-white dark:bg-stone-900">
+      <div className="w-[20%] h-full flex flex-col justify-between bg-white dark:bg-stone-900">
         <div className="flex flex-col">
           {routesMap}
+        </div>
+
+        <div className="flex flex-col justify-center items-start">
+          <p>{session.user.email}</p>
+          <button onClick={() => signOut()}>Logout</button>
         </div>
       </div>
     </>

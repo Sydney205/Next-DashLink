@@ -8,8 +8,8 @@ export default function Navbar() {
   const router = useRouter()
   
   const links: [number, string, string][] = [
-    [1, "Skills", "#skills"],
-    [2, "Project", "#projects"],
+    [1, "Home", "#home"],
+    [2, "About", "#about"],
     [3, "Contact", "#contact"],
   ];
 
@@ -38,14 +38,14 @@ export default function Navbar() {
 
   return (
     <nav      
-      className="bg-inherit top-0 fixed w-full flex justify-between items-center min-h-[10vh] p-2 z-50 shadow-xl left-0"
+      className="bg-inherit top-0 fixed w-full flex justify-between items-center min-h-[10vh] p-2 px-8 z-50 shadow-xl left-0"
     >
-      <div className="w-max flex justify-center items-center gap-24">
+      <div className="w-max flex justify-center items-center gap-12">
         <h4 className="font-extrabold">
           Dash<span className="text-green-600">Link</span>
         </h4>
         
-        <div className="flex justify-center items-center gap-4">
+        <div className="flex gap-4">
           {linksMap}
         </div>
       </div>
@@ -72,6 +72,4 @@ export default function Navbar() {
     </nav>
   );
 }
-
-            // onClick={() => signInRouter("/auth/signin", true)} 
 

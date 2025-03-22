@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { SessionProvider } from "next-auth/react";
 import DashNavbar from "@/components/DashNavbar";
+import DashboardSidebar from "@/components/DashboardSidebar";
 
 export const metadata: Metadata = {
   title: "DashLink - Dashboard",
@@ -7,10 +9,13 @@ export const metadata: Metadata = {
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <section className="w-full h-max flex">
-      <DashNavbar />
-      {children}
-    </section>
+    <SessionProvider>
+      <section className="w-full h-max flex">
+        <DashNavbar />
+        <DashboardSidebar />
+        {children}
+      </section>
+    </SessionProvider>
   );
 }
 

@@ -71,7 +71,7 @@ export const authOptions = {
     },
     async redirect({ url }) {
       const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
-      return `${baseUrl}/dashboard/home`; // Redirect user to the dashboard
+      return `${baseUrl}/dashboard`; // Redirect user to the dashboard
     },
   },
   secret: process.env.NEXTAUTH_SECRET,
