@@ -3,7 +3,11 @@
 import { useEffect, useState } from "react";
 
 export default function Dashboard() {
+  const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
+  
   const [links, setLinks] = useState([]);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchLinks = async () => {
@@ -43,37 +47,37 @@ export default function Dashboard() {
 
   return (
     <>
-      <ul className="mt-2 space-y-2">
-        {links.length > 0 ? (
-          links.map((link, index) => (
-            <li key={index} className="flex border border-green-600 rounded-md p-2">
-              <div className="flex flex-col">
-                {link.title && <h6 className="text-sm font-semibold">{link.title}</h6>}
+      <section className="w-full h-max justify-start items-center">
+        <ul className="w-[60%] mt-2 space-y-2">
+          {links.length > 0 ? (
+            links.map((link, index) => (
+              <li key={index} className="flex border border-green-600 rounded-md p-2">
+                <div className="flex flex-col">
+                  {link.title && <h6 className="text-sm font-semibold">{link.title}</h6>}
 
-                {link.desc && <p className="text-sm">{link.desc}</p>}
-              </div>
-              
-              <a href={`${baseUrl}/${link.shortId}`} target="_blank" className="text-blue-500 underline">
-                {baseUrl}/{link.shortId}
-              </a>
+                  {link.desc && <p className="text-sm">{link.desc}</p>}
+                </div>
+                
+                <a href={`${baseUrl}/${link.shortId}`} target="_blank" className="text-blue-500 underline">
+                  {baseUrl}/{link.shortId}
+                </a>
 
-              
+                
 
-              <div className="flex gap-2">
-                <button 
-                  className="bg-red-500 text-white"
-                >
-                  Edit
-                </button>
-              </div>
-
-              <QRCodeGenerator originalUrl={link.originalUrl} />
-            </li>
-          ))
-        ) : (
-          <p className="text-gray-500">No shortened URLs yet.</p>
-        )}
-      </ul>
+                <div className="flex gap-2">
+                  <button 
+                    className="bg-blue-500 text-white"
+                  >
+                    Edit
+                  </button>
+                </div>
+              </li>
+            ))
+          ) : (
+            <p className="text-gray-500">No shortened URLs yet.</p>
+          )}
+        </ul>
+      </section>
     </>
   )
 }
