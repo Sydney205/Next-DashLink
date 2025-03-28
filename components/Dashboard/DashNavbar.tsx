@@ -14,7 +14,7 @@ export default function DashNavbar() {
     >
       <div className="w-max flex justify-center items-center gap-12">
         <h4 className="font-extrabold cursor-pointer" onClick={() => router.push("/")}>
-          Dash<span className="text-green-600">Link</span>
+          Dash<span className="text-green-400">Link</span>
         </h4>
       </div>
       

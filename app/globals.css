@@ -72,15 +72,21 @@ body {
   }
 
   button {
-    @apply flex justify-center items-center border-[1px] rounded-md p-3 cursor-pointer transition-all ease-out gap-2 hover:rounded-none;
+    @apply flex justify-center items-center border-[1px] rounded-md p-2 cursor-pointer transition-all ease-out gap-2 hover:rounded-none;
   }
   
   .primary-green-btn {
-    @apply border-green-600 bg-green-600 text-white;
+    @apply border-green-400 bg-green-400 text-white;
   }
   
   .secondary-green-btn {
-    @apply bg-inherit text-green-600 border-green-600;
+    @apply bg-inherit text-green-400 border-green-400;
+  }
+}
+
+@layer utilities {
+  .icon {
+    @apply text-gray-700 transition-all cursor-pointer;
   }
 }
 
@@ -104,6 +110,7 @@ body {
     margin-left: 1rem;
   }
 }
+
 
 .animate_shake {
   animation: shake 0.5s ease-in-out 1;

@@ -21,13 +21,13 @@ export default function Home() {
           
 
           <div className="flex flex-col justify-start">
-            <h2 className="font-extrabold">Welcome to <span className="text-green-600">DashLink</span></h2>
+            <h2 className="font-extrabold">Welcome to <span className="text-green-400">DashLink</span></h2>
             <p className="mb-2">A Fast and Reliable URL Shortener</p>
             
             <p className="text-xl">Shorten, Share, and Simplify your links:</p>
           
             <span className="mt-4">
-              <h5 className="text-green-600">
+              <h5 className="text-green-400">
                 Are your URLs too long and hard to remember?
               </h5> 
               
@@ -43,7 +43,7 @@ export default function Home() {
 
         <section className="w-full md:w-[70%] h-max flex flex-col justify-start items-center">
           <div className="px-4 pt-5 my-5 text-center" id="about">
-            <h4 className="text-green-600">Why Choose DashLink?</h4>
+            <h4 className="text-green-400">Why Choose DashLink?</h4>
             <div className="col-lg-6 mx-auto">
               <strong><span className='green'>1. </span> Lightening-Fast Shortening:</strong>
               <p className="lead mb-4">Our cutting-edge technology ensures your URLs are shortened in the blink of an eye and saves time</p>

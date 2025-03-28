@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import QRCodeGenerator from "@/components/QRCodeGenerator";
 
 export default function DashLinkForm() {
   const [title, setTitle] = useState("");
@@ -125,46 +124,37 @@ export default function DashLinkForm() {
       </form>
 
       {error && <p className="text-red-500 mt-3">{error}</p>}
-
-      {shortUrl && (
-        <div className="mt-4 p-3 bg-gray-100 rounded">
-          <p className="text-green-600">Shortened URL:</p>
-          <a href={shortUrl} target="_blank" className="text-blue-500 underline">
-            {shortUrl}
-          </a>
-        </div>
-      )}
-
-      <h3 className="text-lg font-semibold mt-6">Your Shortened URLs</h3>
-      <ul className="mt-2 space-y-2">
-        {links.length > 0 ? (
-          links.map((link, index) => (
-            <li key={index} className="p-2 bg-gray-200 rounded">
-              {link.title && <p className="text-sm font-semibold">{link.title}</p>}
-              
-              <a href={`${baseUrl}/${link.shortId}`} target="_blank" className="text-blue-500 underline">
-                {baseUrl}/{link.shortId}
-              </a>
-
-              {link.desc && <p className="text-sm">{link.desc}</p>}
-
-              <div className="flex gap-2">
-                <button 
-                  className="bg-red-500 text-white"
-                  onClick={() => deleteLink(link.shortId)}
-                >
-                  Delete
-                </button>
-              </div>
-
-              <QRCodeGenerator originalUrl={link.originalUrl} />
-            </li>
-          ))
-        ) : (
-          <p className="text-gray-500">No shortened URLs yet.</p>
-        )}
-      </ul>
     </div>
   );
 }
 
+
+
+      // <ul className="mt-2 space-y-2">
+      //   {links.length > 0 ? (
+      //     links.map((link, index) => (
+      //       <li key={index} className="p-2 bg-gray-200 rounded">
+      //         {link.title && <p className="text-sm font-semibold">{link.title}</p>}
+              
+      //         <a href={`${baseUrl}/${link.shortId}`} target="_blank" className="text-blue-500 underline">
+      //           {baseUrl}/{link.shortId}
+      //         </a>
+
+      //         {link.desc && <p className="text-sm">{link.desc}</p>}
+
+      //         <div className="flex gap-2">
+      //           <button 
+      //             className="bg-red-500 text-white"
+      //             onClick={() => deleteLink(link.shortId)}
+      //           >
+      //             Delete
+      //           </button>
+      //         </div>
+
+      //         <QRCodeGenerator originalUrl={link.originalUrl} />
+      //       </li>
+      //     ))
+      //   ) : (
+      //     <p className="text-gray-500">No shortened URLs yet.</p>
+      //   )}
+      // </ul>

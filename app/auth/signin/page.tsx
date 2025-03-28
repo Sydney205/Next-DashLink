@@ -107,7 +107,7 @@ function AuthForm() {
       <div className="w-full h-screen flex flex-col md:flex-row justify-between items-center md:px-24">
         {!isLoggingIn ? (
           <div className="md:w-[50%] flex flex-col justify-start items-start gap-[2px]">
-            <h1 className="font-extrabold mb-8 text-green-600">Begin your journey DashLink</h1>
+            <h1 className="font-extrabold mb-8 text-green-400">Begin your journey DashLink</h1>
             <p className="text-xl">Join DashLink today</p>
             <p className="text-xl w-full">Experience the convenience and power of efficient link management.</p>
             <p className="text-xl">{"It's time to make every link count"}</p>
@@ -115,7 +115,7 @@ function AuthForm() {
           </div>
         ) : (
           <div className="md:w-[50%] flex flex-col justify-start items-start gap-[2px]">
-            <h1 className="font-extrabold mb-8 text-green-600">Welcome back!</h1>
+            <h1 className="font-extrabold mb-8 text-green-400">Welcome back!</h1>
             <p className="text-xl">Pick up from where you stopped</p>
             <p className="text-xl">Experience the convenience and power of efficient link management.</p>
             <p className="text-xl">{"It's time to make every link count"}</p>
@@ -139,7 +139,7 @@ function AuthForm() {
                 <span
                   className={
                     nameFocus || (name && validName)
-                      ? "absolute -mt-4 ml-6 text-lg text-green-600 bg-white dark:bg-stone-950 px-2 transition-all"
+                      ? "absolute -mt-4 ml-6 text-lg text-green-400 bg-white dark:bg-stone-950 px-2 transition-all"
                       : !nameFocus && name && !validName // Invalid data
                         ? "absolute -mt-4 ml-6 text-lg text-red-400 bg-white dark:bg-stone-950 px-2 transition-all"
                         : "absolute mt-4 ml-6 text-md text-gray-500 transition-all"
@@ -151,7 +151,7 @@ function AuthForm() {
                 <input
                   className={
                     nameFocus || (name && validName)
-                      ? "w-full p-4 border-2 rounded border-green-600 outline-none bg-transparent"
+                      ? "w-full p-4 border-2 rounded border-green-400 outline-none bg-transparent"
                       : !nameFocus && name && !validName // Invalid data
                         ? "w-full p-4 border-2 rounded border-red-700 outline-none bg-transparent"
                         : "w-full h-full p-4 border-2 rounded border-gray-400 outline-none bg-transparent"
@@ -192,7 +192,7 @@ function AuthForm() {
               <span
                 className={
                   emailFocus || (email && validEmail)
-                    ? "absolute -mt-4 ml-6 text-lg text-green-600 bg-white dark:bg-stone-950 px-2 transition-all"
+                    ? "absolute -mt-4 ml-6 text-lg text-green-400 bg-white dark:bg-stone-950 px-2 transition-all"
                     : !emailFocus && email && !validEmail // Invalid data
                       ? "absolute -mt-4 ml-6 text-lg text-red-400 bg-white dark:bg-stone-950 px-2 transition-all"
                       : "absolute mt-4 ml-6 text-md text-gray-500 transition-all"
@@ -204,7 +204,7 @@ function AuthForm() {
               <input
                 className={
                   emailFocus || (email && validEmail)
-                    ? "w-full p-4 border-2 rounded border-green-600 outline-none bg-transparent"
+                    ? "w-full p-4 border-2 rounded border-green-400 outline-none bg-transparent"
                     : !emailFocus && email && !validEmail // Invalid data
                       ? "w-full p-4 border-2 rounded border-red-700 outline-none bg-transparent"
                       : "w-full h-full p-4 border-2 rounded border-gray-400 outline-none bg-transparent"
@@ -244,7 +244,7 @@ function AuthForm() {
               <span
                 className={
                   passwordFocus || (password && validPassword)
-                    ? "absolute -mt-4 ml-6 text-lg text-green-600 bg-white dark:bg-stone-950 px-2 transition-all"
+                    ? "absolute -mt-4 ml-6 text-lg text-green-400 bg-white dark:bg-stone-950 px-2 transition-all"
                     : !passwordFocus && password && !validPassword // Invalid data
                       ? "absolute -mt-4 ml-6 text-lg text-red-400 bg-white dark:bg-stone-950 px-2 transition-all"
                       : "absolute mt-4 ml-6 text-md text-gray-500 transition-all"
@@ -256,7 +256,7 @@ function AuthForm() {
               <input
                 className={
                   passwordFocus || (password && validPassword)
-                    ? "w-full p-4 border-2 rounded border-green-600 outline-none bg-transparent"
+                    ? "w-full p-4 border-2 rounded border-green-400 outline-none bg-transparent"
                     : !passwordFocus && password && !validPassword // Invalid data
                       ? "w-full p-4 border-2 rounded border-red-700 outline-none bg-transparent"
                       : "w-full h-full p-4 border-2 rounded border-gray-400 outline-none bg-transparent"

@@ -1,14 +1,14 @@
 import React from "react";
 
 type ModalProps = {
-  children: React.ReactNode;
+  content: React.ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({ children }) => {
+const Modal: React.FC<ModalProps> = ({ content }) => {
   return (
-    <article className="absolute w-[100vw] h-[100vh] flex justify-center items-center bg-black opacity-90">
+    <article className="absolute left-[25%] top-[25%] w-[50%] h-[50%] flex justify-center items-center bg-black opacity-20">      
       <div className="bg-white dark:bg-stone-900 rounded-xl h-max w-max">
-        {children}
+        {content}
       </div>
     </article>
   )
