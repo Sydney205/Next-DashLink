@@ -1,5 +1,7 @@
+"use client";
+
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function EditLinkForm({ shortId }) {
   const router = useRouter();
@@ -9,7 +11,7 @@ export default function EditLinkForm({ shortId }) {
   // Fetch existing link data
   useEffect(() => {
     async function fetchLink() {
-      const res = await fetch(`/api/links/${shortId}`);
+      const res = await fetch(`/api/user/links/${shortId}`);
       const data = await res.json();
       setLinkData(data);
       setFormData({

@@ -6,7 +6,7 @@ type ModalProps = {
 
 const Modal: React.FC<ModalProps> = ({ content }) => {
   return (
-    <article className="absolute left-[25%] top-[25%] w-[50%] h-[50%] flex justify-center items-center bg-black opacity-20">      
+    <article className="absolute left-[25%] top-[25%] w-[50%] h-[50%] flex justify-center items-center bg-black">      
       <div className="bg-white dark:bg-stone-900 rounded-xl h-max w-max">
         {content}
       </div>

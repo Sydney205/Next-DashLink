@@ -11,7 +11,7 @@ export async function GET(req: NextRequest, { params }: { params: { shortId: str
     return NextResponse.json({ message: "Not authenticated" }, { status: 401 });
   }
 
-  const { shortId } = params;
+  const { shortId } = await params;
 
   const link = await Link.findOne({ shortId, user: session.user.id });
 

@@ -8,6 +8,8 @@ export default function DashSidebar() {
   const router = useRouter();
   const { data: session, status } = useSession();
 
+  const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
+
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/auth/signin");
@@ -18,7 +20,7 @@ export default function DashSidebar() {
   if (!session || !session.user) return null;
 
   const routes: [number, string, string][] = [
-    [1, "Home", "home"],
+    [1, "Home", ""],
     [2, "Create Link", "new"],
   ];
 
@@ -27,7 +29,7 @@ export default function DashSidebar() {
       <div className="flex flex-col">
         {routes.map(([index, title, route]) => (
           <a
-            href={`dashboard/${route}`}
+            href={`${baseUrl}/dashboard/${route}`}
             key={index}
             className="w-full border-b border-green-400 p-2 text-left hover:bg-green-400 hover:text-white transition-all"
           >
