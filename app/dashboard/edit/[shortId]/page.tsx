@@ -6,11 +6,16 @@ import { useRouter } from "next/navigation";
 export default function EditLinkForm({ shortId }) {
   const router = useRouter();
   const [linkData, setLinkData] = useState(null);
-  const [formData, setFormData] = useState({ title: "", desc: "", originalUrl: "", newShortId: "" });
+  const [formData, setFormData] = useState({
+    title: "",
+    desc: "",
+    originalUrl: "",
+    newShortId: "",
+  });
 
-  // Fetch existing link data
   useEffect(() => {
     async function fetchLink() {
+      if (!shortId) return; // early guard
       const res = await fetch(`/api/user/links/${shortId}`);
       const data = await res.json();
       setLinkData(data);
@@ -24,15 +29,12 @@ export default function EditLinkForm({ shortId }) {
     fetchLink();
   }, [shortId]);
 
-  // Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const res = await fetch(`/api/user/links`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -40,7 +42,7 @@ export default function EditLinkForm({ shortId }) {
     });
 
     if (res.ok) {
-      router.push("/dashboard"); // Redirect after successful update
+      router.push("/dashboard");
     } else {
       console.error("Update failed");
     }
